@@ -36,7 +36,7 @@ class _InputPageState extends State<InputPage> {
         title: const Text('Bmi calculator',style: TextStyle(color: Colors.white)),
       ),
       body: const Center(
-        child: Text('Body Text'),
+        child: Text('Body Text '),
       ),
       floatingActionButton: FloatingActionButton(
         // backgroundColor: Theme.of(context).primaryColor,
