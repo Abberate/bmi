@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:bmi/constants.dart';
 
-final TextStyle textStyle = GoogleFonts.poppins(
-  fontSize: 22,
-  fontWeight: FontWeight.w600,
-  color: const Color(0xFF8D8E98),
-);
 
 
 class IconContent extends StatelessWidget {
@@ -22,7 +17,7 @@ class IconContent extends StatelessWidget {
         const SizedBox(height: 15),
         Text(
           texte,
-          style: textStyle,
+          style: kTextStyle,
         )
       ],
     );
