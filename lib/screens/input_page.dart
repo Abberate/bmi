@@ -1,9 +1,13 @@
+import 'package:bmi/components/bottom_button.dart';
+import 'package:bmi/screens/results_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:bmi/reusable_card.dart';
-import 'package:bmi/icon_content.dart';
+import 'package:bmi/components/reusable_card.dart';
+import 'package:bmi/components/icon_content.dart';
 import 'package:bmi/constants.dart';
+import 'package:bmi/components/round_icon_button.dart';
+import 'package:bmi/calculator_brain.dart';
 
 enum Gender { male, female }
 
@@ -207,34 +211,22 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            decoration: const BoxDecoration(color: kBottomContainerColour),
-            margin: const EdgeInsets.only(top: 10),
-            width: double.infinity,
-            height: kBottomContainerHeight,
+          BottomButton(
+            buttonTitle: 'Calculer',
+            onTap: () {
+              CalculatorBrain calc =
+                  CalculatorBrain(taille: taille, poids: poids);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ResultsPage(
+                          resultatIMC: calc.calculateIMC(),
+                          resultText: calc.getResult(),
+                          interpretation: calc.getInterpretation())));
+            },
           )
         ],
       ),
     );
-  }
-}
-
-class RoundIconButton extends StatelessWidget {
-  const RoundIconButton({super.key, required this.icon,required this.action});
-  final IconData icon;
-  final VoidCallback action;
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-        constraints: const BoxConstraints.tightFor(
-          width: 56.0,
-          height: 56.0,
-        ),
-        elevation: 6.0,
-        shape: const CircleBorder(),
-        fillColor: const Color(0xFF4C4F5E),
-        onPressed: action,
-        child: Icon(icon));
   }
 }

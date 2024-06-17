@@ -1,4 +1,5 @@
-import 'package:bmi/input_page.dart';
+import 'package:bmi/screens/input_page.dart';
+import 'package:bmi/screens/results_page.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const BMICalculator());
@@ -11,9 +12,9 @@ class BMICalculator extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-        floatingActionButtonTheme: FloatingActionButtonThemeData(backgroundColor: Colors.pinkAccent,foregroundColor: Colors.white ),
-        primaryColor: Color(0xff090E21),
-        scaffoldBackgroundColor: Color(0xff090E21),
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(backgroundColor: Colors.pinkAccent,foregroundColor: Colors.white ),
+        primaryColor: const Color(0xff090E21),
+        scaffoldBackgroundColor: const Color(0xff090E21),
       ),
       home: const InputPage(),
     );
